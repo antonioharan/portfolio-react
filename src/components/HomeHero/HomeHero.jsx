@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./HomeHero.css";
 import PageTransition from "../PageTransition/PageTransition";
 import Navbar from "../Navbar/Navbar";
+import ContactFooter from "../ContactFooter/ContactFooter";
 
 // ── Círculo orbitante ─────────────────────────────────────────────────────
 function OrbitCircle() {
@@ -85,13 +86,16 @@ function BottomBar() {
 // ── Componente principal ──────────────────────────────────────────────────
 export default function HomeHero() {
   return (
-    <section className="hero">
-      <div className="hero__bg" />
-      <div className="hero__overlay" />
-      <Navbar theme="dark" />
-      <HeroContent />
-      <OrbitCircle />
-      <BottomBar />
-    </section>
+    <>
+      <section className="hero">
+        <div className="hero__bg" />
+        <div className="hero__overlay" />
+        <Navbar theme="dark" />
+        <HeroContent />
+        <OrbitCircle />
+        <BottomBar />
+      </section>
+      <ContactFooter />
+    </>
   );
 }

@@ -3,6 +3,7 @@
 .section-contact {
   width: 100%;
   background: #06081F;
+  overflow: hidden;
 }
 
 /* Contenedor principal */

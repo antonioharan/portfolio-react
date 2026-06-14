@@ -67,19 +67,47 @@ export default function Navbar({ theme = "dark" }) {
 
       {/* Menú mobile */}
       <div className={`navbar__mobile-menu ${menuOpen ? "is-open" : ""}`}>
-        {[
-          { label: "Home", path: "/" },
-          { label: "Works", path: "/works" },
-          { label: "About", path: "/about" },
-        ].map(({ label, path }) => (
-          <span
-            key={label}
-            onClick={() => handleNav(path)}
-            className={`navbar__mobile-link ${isActive(path) ? "navbar__mobile-link--active" : ""}`}
+        <div className="navbar__mobile-header">
+          <div className="navbar__logo">
+            <img src={logo} alt="Antonio De-sign logo" onClick={() => handleNav("/")} style={{ cursor: "pointer" }} />
+          </div>
+          <button
+            className="navbar__hamburger navbar__hamburger--mobile is-open"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
           >
-            {label}
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+
+        <div className="navbar__mobile-links">
+          {[
+            { label: "Home", path: "/" },
+            { label: "Works", path: "/works" },
+            { label: "About", path: "/about" },
+          ].map(({ label, path }) => (
+            <span
+              key={label}
+              onClick={() => handleNav(path)}
+              className={`navbar__mobile-link ${isActive(path) ? "navbar__mobile-link--active" : ""}`}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div className="navbar__mobile-lang">
+          <span className="navbar__mobile-lang-item navbar__mobile-lang-item--active">
+            <span className="navbar__mobile-lang-dot navbar__mobile-lang-dot--active" />
+            En
           </span>
-        ))}
+          <span className="navbar__mobile-lang-item">
+            <span className="navbar__mobile-lang-dot" />
+            Es
+          </span>
+        </div>
       </div>
     </>
   );
