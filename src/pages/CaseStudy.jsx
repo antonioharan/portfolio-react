@@ -219,8 +219,18 @@ export default function CaseStudy({
       {/* ── Project navigation ── */}
       <section className="cs-nav-section">
         <div className="cs-nav-inner">
-          <a href={backHref} className="cs-nav-back">Back To Works</a>
-          <a href={nextProjectHref} className="cs-nav-next">
+          <a
+            href={backHref}
+            className="cs-nav-back"
+            onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); navigate(backHref); }}
+          >
+            Back To Works
+          </a>
+          <a
+            href={nextProjectHref}
+            className="cs-nav-next"
+            onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); navigate(nextProjectHref); }}
+          >
             <span className="cs-nav-next__label">{nextProjectLabel}</span>
             <svg width="11" height="17" viewBox="0 0 17 13" fill="none">
               <path d="M0.914062 6.52344L14.4097 6.52344" stroke="#06081F" strokeWidth="1.83" strokeLinecap="round"/>
