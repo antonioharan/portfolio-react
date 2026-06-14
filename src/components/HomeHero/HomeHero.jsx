@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import "./HomeHero.css";
 import PageTransition from "../PageTransition/PageTransition";
 import Navbar from "../Navbar/Navbar";
-import ContactFooter from "../ContactFooter/ContactFooter";
 
 // ── Círculo orbitante ─────────────────────────────────────────────────────
 function OrbitCircle() {
@@ -76,9 +75,9 @@ function HeroContent() {
 function BottomBar() {
   return (
     <div className="hero__bottom">
-      <a href="#" className="hero__link">Design ShowReel</a>
+      <a href="#" className="hero__link hero__link--showreel">Design ShowReel</a>
       <PageTransition to="/works" />
-      <a href="mailto:hola@antonio.com" className="hero__link">hola@antonio.com</a>
+      <a href="mailto:hola@antonio.com" className="hero__link hero__link--email">hola@antonio.com</a>
     </div>
   );
 }
@@ -86,16 +85,13 @@ function BottomBar() {
 // ── Componente principal ──────────────────────────────────────────────────
 export default function HomeHero() {
   return (
-    <>
-      <section className="hero">
-        <div className="hero__bg" />
-        <div className="hero__overlay" />
-        <Navbar theme="dark" />
-        <HeroContent />
-        <OrbitCircle />
-        <BottomBar />
-      </section>
-      <ContactFooter />
-    </>
+    <section className="hero">
+      <div className="hero__bg" />
+      <div className="hero__overlay" />
+      <Navbar theme="dark" />
+      <HeroContent />
+      <OrbitCircle />
+      <BottomBar />
+    </section>
   );
 }
