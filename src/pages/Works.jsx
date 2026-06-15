@@ -49,7 +49,7 @@ function Marquee() {
 }
 
 // ── Work card ────────────────────────────────────────────────────────
-function WorkCard({ image, hoverImage, title, description, areas, href = "#" }) {
+function WorkCard({ image, hoverImage, imageMobile, title, description, areas, href = "#" }) {
   const areaList = areas.split(" · ");
   const [hovered, setHovered] = useState(false);
   const { startCurtain } = useTransition();
@@ -67,7 +67,10 @@ function WorkCard({ image, hoverImage, title, description, areas, href = "#" }) 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img src={hovered && hoverImage ? hoverImage : image} alt={title} />
+      <picture>
+        {imageMobile && <source media="(max-width: 768px)" srcSet={imageMobile} />}
+        <img src={hovered && hoverImage ? hoverImage : image} alt={title} />
+      </picture>
       <div className="work-overlay">
         <div className="container-info">
 
@@ -102,6 +105,7 @@ export default function Works() {
     {
       image: "/images/works/work-adeslas.webp",
       hoverImage: "/images/works/work-adeslash.webp",
+      imageMobile: "/images/works/work-adeslas-mobile.webp",
       title: "Customer Portal",
       description: "Self-Service Platform for Insurance Clients",
       areas: "Strategy · Product Design · UX Design",
@@ -110,6 +114,7 @@ export default function Works() {
     {
       image: "/images/works/work-choose.webp",
       hoverImage: "/images/works/work-chooseh.webp",
+      imageMobile: "/images/works/work-choose-mobile.webp",
       title: "Lead Generation Platform",
       description: "Marketing Platform for Lead Capture & Conversion",
       areas: "Strategy · Product Design · UX Design",
@@ -118,6 +123,7 @@ export default function Works() {
     {
       image: "/images/works/work-pyc.webp",
       hoverImage: "/images/works/work-pych.webp",
+      imageMobile: "/images/works/work-dashboard-mobile.webp",
       title: "Performance Dashboard",
       description: "Real-Time Analytics & Reporting Platform",
       areas: "Strategy · Product Design · UX Design",
@@ -149,7 +155,7 @@ export default function Works() {
         </div>
       </div>
 
-      {/* Contact & Footer */}
+      {/* Contact */}
       <ContactFooter />
     </div>
   );

@@ -190,8 +190,10 @@
   z-index: 1;
 }
 
-.selected-work:hover img {
-  transform: scale(1.03);
+@media (hover: hover) {
+  .selected-work:hover img {
+    transform: scale(1.03);
+  }
 }
 
 .work-overlay {
@@ -206,9 +208,11 @@
   z-index: 2;
 }
 
-.selected-work:hover .work-overlay {
-  opacity: 1;
-  background: transparent;
+@media (hover: hover) {
+  .selected-work:hover .work-overlay {
+    opacity: 1;
+    background: transparent;
+  }
 }
 
 /* container-info */
@@ -495,6 +499,11 @@
   .hero-title { font-size: clamp(40px, 13.33vw, 52px); line-height: 1; }
   .hero-subtitle { font-size: clamp(20px, 7.18vw, 28px); line-height: 1.4; }
   .showreel-cta { position: static; transform: none; }
+
+  /* ── Works ── */
+  .selected-work { height: 360px; }
+  .works-hero { height: 404px; }
+  .works-hero__title { font-size: 248px; }
 }
 
 @media (max-width: 768px) {
@@ -574,3 +583,89 @@
 }
 
 
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .works-hero {
+    height: 328px;
+  }
+
+  .works-hero__title {
+    font-size: 148px;
+  }
+
+  .works-hero__subtitle {
+    font-size: 18px;
+  }
+
+  .marquee-section {
+    height: 81px;
+  }
+
+  /* ── Cards ── */
+  .wrapper-works {
+    align-items: center;
+    gap: 24px;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .selected-work {
+    width: 366px;
+    height: 440px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .selected-work + .selected-work {
+    border-top: none;
+  }
+
+  /* Overlay siempre visible, sin hover */
+  .work-overlay {
+    opacity: 1;
+    background: rgba(2, 4, 20, 0.55);
+    align-items: flex-end;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+  }
+
+  .container-info {
+    gap: 24px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .project-info {
+    gap: 12px;
+  }
+
+  .project-title {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .wrapper-areas {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .area-badge {
+    background: transparent;
+    color: #ffffff;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .area-dot {
+    color: #ffffff;
+  }
+
+  .btn-see-project {
+    font-size: 16px;
+    padding: 10px 32px;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
