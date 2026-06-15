@@ -6,13 +6,24 @@
   overflow: hidden;
 }
 
-/* Contenedor principal */
+/* Contenedor principal — relativo para posicionar social en absoluto */
 .contact-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 120px 0 100px;
+}
+
+/* Agrupa Talk + Info, centrado */
+.container-contact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
-  padding: 120px 0 100px;
+  gap: 16px;
 }
 
 /* Wrapper Talk — posición relativa para el bg word */
@@ -91,6 +102,10 @@
 
 /* Wrapper Social */
 .contact-wrapper-social {
+  position: absolute;
+  bottom: 42px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -108,30 +123,48 @@
   transform: scale(1.1);
 }
 
-/* ── Mobile 390 ── */
-@media (max-width: 390px) {
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .section-contact {
+    height: 500px;
+    max-height: 500px;
+  }
+
   .contact-container {
     height: 500px;
+    min-height: 0;
     box-sizing: border-box;
-    justify-content: center;
-    gap: 48px;
     padding: 0 24px;
   }
 
-  .contact-wrapper-info {
+  .container-contact {
     gap: 16px;
   }
 
-  .contact-info-paragraph,
-  .contact-email {
+  .contact-wrapper-talk {
+    height: 164px;
+  }
+
+  .contact-info-paragraph {
     font-size: 16px;
   }
 
+  .contact-email {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
   .contact-bg-word {
+    font-size: 161px;
     color: #F82121;
   }
 
+  .contact-title {
+    font-size: 86px;
+  }
+
   .contact-wrapper-social {
+    bottom: 42px;
     gap: 24px;
   }
 
