@@ -622,24 +622,25 @@
     border-top: none;
   }
 
-  /* Overlay siempre visible, sin hover */
+  /* Overlay eliminado en mobile — la imagen ya tiene oscurecimiento propio */
   .work-overlay {
-    opacity: 1;
-    background: rgba(2, 4, 20, 0.55);
-    align-items: flex-end;
-    padding-bottom: 32px;
-    box-sizing: border-box;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 
   .container-info {
-    gap: 24px;
+    gap: 64px;
+    align-items: center;
     padding: 0 24px;
     box-sizing: border-box;
     width: 100%;
   }
 
   .project-info {
-    gap: 12px;
+    gap: 16px;
+    align-items: center;
   }
 
   .project-title {
@@ -665,7 +666,9 @@
 
   .btn-see-project {
     font-size: 16px;
-    padding: 10px 32px;
-    border-color: rgba(255, 255, 255, 0.4);
+    width: 240px;
+    height: 52px;
+    padding: 0;
+    border-color: #9A81E9;
   }
 }
