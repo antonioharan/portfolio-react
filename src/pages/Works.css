@@ -624,6 +624,7 @@
 
   /* Overlay eliminado en mobile — la imagen ya tiene oscurecimiento propio */
   .work-overlay {
+    opacity: 1;
     background: transparent;
     align-items: center;
     justify-content: center;
@@ -669,6 +670,7 @@
     width: 240px;
     height: 52px;
     padding: 0;
+    justify-content: center;
     border-color: #9A81E9;
   }
 }
