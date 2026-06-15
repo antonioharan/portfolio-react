@@ -625,10 +625,6 @@
   border-bottom: 0.6px solid #D1E0E8;
 }
 
-.cs-accordion-item:first-child {
-  border-top: 0.6px solid #D1E0E8;
-}
-
 .cs-accordion-header {
   display: flex;
   align-items: center;
@@ -681,6 +677,10 @@
 
   .cs-summary {
     padding: 32px 0;
+  }
+
+  .cs-summary__inner {
+    gap: 32px;
   }
 
   .cs-summary__title {
