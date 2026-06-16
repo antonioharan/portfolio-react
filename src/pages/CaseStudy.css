@@ -666,6 +666,24 @@
 }
 
 @media (max-width: 768px) {
+  .cs-hero {
+    height: 514px;
+  }
+
+  .cs-hero__content {
+    bottom: auto;
+    top: 168px;
+  }
+
+  .cs-hero__container-title {
+    gap: 32px;
+  }
+
+  .cs-hero__title {
+    font-size: 72px;
+    letter-spacing: -0.05em;
+  }
+
   .cs-summary__wrapper-details {
     display: none;
   }
