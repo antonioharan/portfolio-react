@@ -1,296 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Lexend:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Lexend:wght@400;500;600&display=swap');
 
 .about-page {
   background: #06081F;
   min-height: 100vh;
-  color: #D1E0E8;
-}
-
-.about-red {
-  color: #F82121;
+  overflow-x: hidden;
 }
 
 /* ── Hero ── */
 .about-hero {
-  height: 740px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  border-bottom: 0.6px solid #151D6E;
-}
-
-.about-hero::before,
-.about-hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  border-left: 0.6px solid #151D6E;
-}
-
-.about-hero::before { left: clamp(16px, 6.37vw, 110px); }
-.about-hero::after  { right: clamp(16px, 6.37vw, 110px); }
-
-.about-hero__wrapper-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-.about-hero__title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 312px;
-  color: #E71414;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
   text-align: center;
-  margin: 0;
-  order: -1;
+  min-height: 100vh;
+  padding: 100px 32px;
+  box-sizing: border-box;
 }
 
 .about-hero__subtitle {
   font-family: 'Lexend', sans-serif;
-  font-size: 32px;
   font-weight: 400;
-  color: #D1E0E8;
-  text-align: center;
+  font-size: 32px;
+  color: #ffffff;
   margin: 0;
 }
 
-/* ── Marquee About ── */
-.marquee-about {
-  width: 100%;
-  height: clamp(72px, 10vw, 145px);
-  border-top: 0.6px solid #151D6E;
-  border-bottom: 0.6px solid #151D6E;
-  background: #06081F;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.marquee-about-track {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  width: max-content;
-  position: absolute;
-  left: 0;
-  white-space: nowrap;
-  visibility: hidden;
-}
-
-.marquee-about-word {
-  color: #41B8F3;
-  text-align: center;
+.about-hero__title {
   font-family: 'Lexend', sans-serif;
-  font-size: clamp(20px, 3.5vw, 41px);
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-/* ── Who Am I ── */
-.section-whoami {
-  position: relative;
-  height: 400vh;
-}
-
-.whoami-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 0.6px solid #151D6E;
-  border-bottom: 0.6px solid #151D6E;
-  background: #06081F;
-}
-
-.whoami-text {
-  position: absolute;
-  width: 640px;
-  flex-shrink: 0;
-  color: #D1E0E8;
-  text-align: center;
-  font-family: 'Lexend', sans-serif;
-  font-size: 60px;
   font-weight: 400;
-  line-height: 114%;
-  will-change: transform, opacity;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(40px);
+  font-size: 64px;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 24px 0 0;
 }
 
-.whoami-red {
-  color: #D1E0E8;
-}
-
-/* ── What I Do ── */
-.section-whatido {
-  width: 100%;
-  background: #06081F;
-  padding: 115px clamp(120px, 18vw, 361px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border-top: 0.6px solid #151D6E;
-  border-bottom: 0.6px solid #151D6E;
-}
-
-.whatido-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 13px;
-}
-
-.whatido-label {
-  height: 48px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.whatido-label span {
-  color: #D1E0E8;
-  font-family: 'Lexend', sans-serif;
-  font-size: 21px;
-  font-weight: 500;
-  letter-spacing: -0.21px;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-.whatido-info {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 232px;
-}
-
-.left-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 48px;
-}
-
-.whatido-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
-
-.whatido-menu-item {
-  color: #D1E0E8;
-  font-family: 'Lexend', sans-serif;
-  font-size: 42px;
-  font-weight: 500;
-  letter-spacing: -0.42px;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.whatido-menu-item.active,
-.whatido-menu-item:hover {
+.about-hero__red {
   color: #F82121;
 }
 
-.whatido-area-description {
+.about-hero__paragraph {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #ffffff;
+  width: 524px;
+  max-width: 100%;
+  line-height: 1.5;
+  margin: 48px 0 0;
+}
+
+.about-hero__cta {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  width: 264px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.about-hero__cta:hover {
+  background: #ffffff;
+  color: #36237A;
+}
+
+/* ── What I Do ── */
+.whatido {
+  padding: 0 32px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.whatido--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.whatido__label {
+  display: block;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #F82121;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+}
+
+.whatido__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.whatido__list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  height: 172px;
+  gap: 0;
 }
 
-.whatido-area-title {
-  color: #D1E0E8;
+.whatido__item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 115px;
+  line-height: 1;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.whatido__item--active {
+  color: #F82121;
+}
+
+.whatido__note {
   font-family: 'Lexend', sans-serif;
+  font-weight: 300;
   font-size: 21px;
-  font-weight: 600;
-}
-
-.whatido-area-desc {
-  width: 300px;
-  color: #5338ab ;
-  font-family: 'Lexend', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 154%;
-  letter-spacing: -0.16px;
-}
-
-.whatido-wrapper-quote {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.whatido-quote-text {
-  width: 460px;
-  color: #D1E0E8;
-  font-family: 'Lexend', sans-serif;
-  font-size: 70px;
-  font-weight: 400;
-  line-height: 104%;
-  transition: opacity 0.15s ease;
-}
-
-.whatido-quote-text.is-changing {
-  opacity: 0;
-}
-
-.whatido-quote-text.is-entering {
-  animation: quoteEnter 0.4s ease-out forwards;
-}
-
-@keyframes quoteEnter {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0px); }
-}
-
-.about-page .navbar--dark {
-  border-bottom: 0.6px solid #151D6E;
-}
-
-/* ── Marquee Hello ── */
-.about-page .marquee-section {
-  background: #06081F;
-  border-top: 0.6px solid #151D6E;
-  border-bottom: 0.6px solid #151D6E;
+  color: #9A81E9;
+  max-width: 280px;
+  min-height: 56px;
+  margin: 8px 0 0;
+  flex-shrink: 0;
 }
 
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .about-hero__title { font-size: clamp(120px, 20vw, 240px); }
-  .whatido-info { gap: 80px; }
-  .whatido-wrapper-quote { display: none; }
+/* ── Override ContactFooter en About ── */
+.about-page .contact-container {
+  height: 428px;
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .about-hero { height: 380px; }
-  .about-hero__title { font-size: clamp(80px, 22vw, 160px); }
-  .section-whoami { height: 250vh; }
-  .whoami-sticky { height: 100dvh; padding: 0 28px; }
-  .whoami-text { width: clamp(300px, 86vw, 640px); font-size: clamp(32px, 8vw, 60px); }
-  .whatido-info { flex-direction: column; gap: 48px; }
-  .whatido-wrapper-quote { display: none; }
-  .section-whatido { padding: 80px 32px; }
+  .about-hero {
+    justify-content: center;
+    padding: 120px 24px 80px;
+    min-height: 100vh;
+  }
+
+  .about-hero__subtitle {
+    font-size: 18px;
+  }
+
+  .about-hero__title {
+    font-size: 42px;
+    margin: 16px 0 0;
+  }
+
+  .about-hero__paragraph {
+    font-size: 16px;
+    width: 350px;
+    max-width: 100%;
+    margin: 32px 0 0;
+  }
+
+  .about-hero__cta {
+    width: 100%;
+    max-width: 264px;
+    margin-top: 48px;
+  }
+
+  /* What I Do mobile */
+  .whatido {
+    padding: 0 24px 80px;
+  }
+
+  .whatido__label {
+    font-size: 18px;
+    margin-bottom: 32px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .whatido__row {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .whatido__list {
+    align-items: center;
+  }
+
+  .whatido__item {
+    font-size: 64px;
+    text-align: center;
+  }
+
+  .whatido__note {
+    font-size: 18px;
+    max-width: 100%;
+    min-height: auto;
+    text-align: center;
+  }
 }

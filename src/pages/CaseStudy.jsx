@@ -17,6 +17,7 @@ function Toast({ message, visible }) {
 export default function CaseStudy({
   // Hero
   coverImage,
+  coverImageMobile,
   projectDescription,
   projectTitle,
   projectSubtitle,
@@ -71,7 +72,10 @@ export default function CaseStudy({
 
       {/* ── Hero ── */}
       <div className="cs-hero">
-        <img src={coverImage} alt={projectTitle} className="cs-hero__bg" />
+        <picture>
+          {coverImageMobile && <source media="(max-width: 768px)" srcSet={coverImageMobile} />}
+          <img src={coverImage} alt={projectTitle} className="cs-hero__bg" />
+        </picture>
 
         <div className="cs-hero__content">
           <div className="cs-hero__wrapper-info">
@@ -116,7 +120,7 @@ export default function CaseStudy({
 
             {/* Menu */}
             <div className="cs-summary__menu">
-              {["Overview", "Context", "Challenge"].map((item, i) => (
+              {["Overview", "Challenge", "Outcome"].map((item, i) => (
                 <span
                   key={item}
                   className={`cs-summary__menu-item ${activeTab === i ? "cs-summary__menu-item--active" : ""}`}
@@ -130,7 +134,6 @@ export default function CaseStudy({
             {/* Right content */}
             <div className="cs-summary__right">
               <div className="cs-summary__info">
-                <span className="cs-summary__category">{projectDescription}</span>
                 <p className="cs-summary__text" style={{ whiteSpace: "pre-line" }}>
                   {summaryTabs[activeTab]}
                 </p>
@@ -155,7 +158,7 @@ export default function CaseStudy({
 
           {/* Mobile accordion */}
           <div className="cs-summary__accordion">
-            {["Overview", "Context", "Challenge"].map((item, i) => (
+            {["Overview", "Challenge", "Outcome"].map((item, i) => (
               <div key={item} className="cs-accordion-item">
                 <div
                   className={`cs-accordion-header ${activeTab === i ? "cs-accordion-header--active" : ""}`}
@@ -166,7 +169,6 @@ export default function CaseStudy({
                 </div>
                 {activeTab === i && (
                   <div className="cs-accordion-body">
-                    <span className="cs-summary__category">{projectDescription}</span>
                     <p className="cs-summary__text" style={{ whiteSpace: "pre-line" }}>
                       {summaryTabs[i]}
                     </p>
@@ -233,8 +235,8 @@ export default function CaseStudy({
           >
             <span className="cs-nav-next__label">{nextProjectLabel}</span>
             <svg width="11" height="17" viewBox="0 0 17 13" fill="none">
-              <path d="M0.914062 6.52344L14.4097 6.52344" stroke="#06081F" strokeWidth="1.83" strokeLinecap="round"/>
-              <path d="M10.7207 12L14.826 6.52632L10.7207 1.05263" stroke="#06081F" strokeWidth="1.83" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M0.914062 6.52344L14.4097 6.52344" stroke="#FFFFFF" strokeWidth="1.83" strokeLinecap="round"/>
+              <path d="M10.7207 12L14.826 6.52632L10.7207 1.05263" stroke="#FFFFFF" strokeWidth="1.83" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
         </div>
