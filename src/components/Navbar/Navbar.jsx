@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../../assets/logo.svg";
+import logoAntonio from "../../assets/logo-antonio.svg";
+import logoDesign from "../../assets/logo-design.svg";
 
 export default function Navbar({ theme = "dark" }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
 
   const isActive = (path) => {
     if (path === "/works") return location.pathname.startsWith("/works");
@@ -25,8 +27,39 @@ export default function Navbar({ theme = "dark" }) {
     <>
       <nav className={`navbar navbar--${theme}`}>
         <div className="navbar__wrapper">
-          <div className="navbar__logo">
-            <img src={logo} alt="Antonio De-sign logo" onClick={() => handleNav("/")} style={{ cursor: "pointer" }} />
+          <div
+            className="navbar__logo"
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+            onClick={() => handleNav("/")}
+            style={{ cursor: "pointer", position: "relative", width: 104, height: 26 }}
+          >
+            <img
+              src={logoAntonio}
+              alt="Antonio logo"
+              width={104}
+              height={26}
+              style={{
+                display: "block",
+                position: "absolute",
+                top: 0, left: 0,
+                opacity: logoHovered ? 0 : 1,
+                transition: "opacity 0.35s ease",
+              }}
+            />
+            <img
+              src={logoDesign}
+              alt="De-sign logo"
+              width={104}
+              height={26}
+              style={{
+                display: "block",
+                position: "absolute",
+                top: 0, left: 0,
+                opacity: logoHovered ? 1 : 0,
+                transition: "opacity 0.35s ease",
+              }}
+            />
           </div>
 
           <div className="navbar__links">
@@ -69,7 +102,14 @@ export default function Navbar({ theme = "dark" }) {
       <div className={`navbar__mobile-menu ${menuOpen ? "is-open" : ""}`}>
         <div className="navbar__mobile-header">
           <div className="navbar__logo">
-            <img src={logo} alt="Antonio De-sign logo" onClick={() => handleNav("/")} style={{ cursor: "pointer" }} />
+            <img
+              src={logoAntonio}
+              alt="Antonio De-sign logo"
+              width={104}
+              height={26}
+              onClick={() => handleNav("/")}
+              style={{ cursor: "pointer", display: "block" }}
+            />
           </div>
           <button
             className="navbar__hamburger navbar__hamburger--mobile is-open"

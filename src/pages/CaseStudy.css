@@ -401,14 +401,14 @@
 .cs-nav-back {
   color: #71727F;
   font-family: 'Lexend', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 154%;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.cs-nav-back:hover { color: var(--red); }
+.cs-nav-back:hover { color: #9A81E9; }
 
 .cs-nav-next {
   display: flex;
@@ -419,7 +419,7 @@
 
 .cs-nav-next__label {
   font-family: 'Lexend', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 154%;
   color: #FFFFFF;
@@ -526,7 +526,7 @@
   }
 
   .cs-hero__title {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: 72px;
     letter-spacing: -0.05em;
   }
 
@@ -558,4 +558,10 @@
     letter-spacing: -2px;
     text-transform: none;
   }
+}
+
+
+/* ── Override ContactFooter en CaseStudy ── */
+.cs-page .contact-container {
+  height: 428px;
 }

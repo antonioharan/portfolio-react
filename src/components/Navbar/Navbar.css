@@ -18,6 +18,10 @@
   border-bottom: 0.6px solid #D1E0E8;
 }
 
+.navbar--light .navbar__hamburger span {
+  background: #06081F;
+}
+
 .navbar__wrapper {
   width: 100%;
   max-width: 1200px;
