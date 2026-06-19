@@ -250,8 +250,8 @@
 
   .hero__subtitle        { font-size: 18px; }
 
-  .hero__title           { font-size: clamp(64px, 26vw, 102px); width: 100%; }
-  .hero__title-line      { font-size: clamp(64px, 26vw, 102px); width: 100%; overflow: hidden; white-space: normal; }
+  .hero__title           { font-size: clamp(64px, 25vw, 102px); width: 100%; }
+  .hero__title-line      { font-size: clamp(64px, 25vw, 102px); width: 100%; overflow: hidden; white-space: normal; }
 
   .hero__mobile-phrase {
     display: block !important;
@@ -271,7 +271,7 @@
     margin-bottom: 56px;
     width: 100%;
     flex-direction: column;
-    gap: 40px;
+    gap: 80px;
     height: auto;
     padding: 0 24px;
     box-sizing: border-box;

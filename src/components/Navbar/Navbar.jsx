@@ -9,6 +9,7 @@ export default function Navbar({ theme = "dark" }) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
+  const [lang, setLang] = useState("es");
 
   const isActive = (path) => {
     if (path === "/works") return location.pathname.startsWith("/works");
@@ -139,14 +140,16 @@ export default function Navbar({ theme = "dark" }) {
         </div>
 
         <div className="navbar__mobile-lang">
-          <span className="navbar__mobile-lang-item navbar__mobile-lang-item--active">
-            <span className="navbar__mobile-lang-dot navbar__mobile-lang-dot--active" />
-            En
-          </span>
-          <span className="navbar__mobile-lang-item">
-            <span className="navbar__mobile-lang-dot" />
-            Es
-          </span>
+          <button
+            className={`navbar__lang-toggle ${lang === "en" ? "navbar__lang-toggle--en" : ""}`}
+            onClick={() => setLang(lang === "es" ? "en" : "es")}
+          >
+            <span className={`navbar__lang-toggle-pill ${lang === "es" ? "navbar__lang-toggle-pill--es" : "navbar__lang-toggle-pill--en"}`}>
+              {lang === "es" ? "Es" : "En"}
+            </span>
+            <span className="navbar__lang-toggle-option navbar__lang-toggle-option--left">Es</span>
+            <span className="navbar__lang-toggle-option navbar__lang-toggle-option--right">En</span>
+          </button>
         </div>
       </div>
     </>
