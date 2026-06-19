@@ -141,7 +141,7 @@ export default function Navbar({ theme = "dark" }) {
 
         <div className="navbar__mobile-lang">
           <button
-            className={`navbar__lang-toggle ${lang === "en" ? "navbar__lang-toggle--en" : ""}`}
+            className={`navbar__lang-toggle ${lang === "en" ? "navbar__lang-toggle--en" : "navbar__lang-toggle--es"}`}
             onClick={() => setLang(lang === "es" ? "en" : "es")}
           >
             <span className={`navbar__lang-toggle-pill ${lang === "es" ? "navbar__lang-toggle-pill--es" : "navbar__lang-toggle-pill--en"}`}>

@@ -260,6 +260,7 @@
   font-weight: 600;
   color: #9A81E9;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .navbar__lang-toggle-option--left {
@@ -268,6 +269,11 @@
 
 .navbar__lang-toggle-option--right {
   right: 0;
+}
+
+.navbar__lang-toggle--es .navbar__lang-toggle-option--left,
+.navbar__lang-toggle--en .navbar__lang-toggle-option--right {
+  opacity: 0;
 }
 
 /* ── Ocultar links y lang en mobile ── */
