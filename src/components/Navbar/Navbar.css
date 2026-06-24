@@ -65,32 +65,38 @@
   color: #F82121 !important;
 }
 
-.navbar__lang {
+.navbar__lang-pill {
   display: flex;
   align-items: center;
+  border: 1px solid #36237A;
+  border-radius: 50px;
+  padding: 4px;
   gap: 4px;
 }
 
-.navbar__lang-sep {
+.navbar__lang-pill-item {
   font-family: 'Lexend', sans-serif;
-  font-size: 17px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #36237A;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 50px;
+  transition: color 0.2s ease;
 }
 
-.navbar__lang-item {
-  font-family: 'Lexend', sans-serif;
-  font-size: 17px;
-  color: var(--link-color, #36237A);
-  text-decoration: none;
-  transition: color 0.2s;
+.navbar__lang-pill-item:hover {
+  color: #ffffff;
 }
 
-.navbar__lang-item:hover {
-  color: var(--hover-color, #ffffff);
+.navbar__lang-pill-item--active {
+  color: #F82121;
 }
 
-.navbar__lang-item--active {
-  color: #F82121 !important;
-  pointer-events: none;
+.navbar__lang-pill-item--active:hover {
+  color: #F82121;
 }
 
 /* ── Responsive 1024 ── */
@@ -279,7 +285,7 @@
 /* ── Ocultar links y lang en mobile ── */
 @media (max-width: 768px) {
   .navbar__links,
-  .navbar__lang {
+  .navbar__lang-pill {
     display: none;
   }
 

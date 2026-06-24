@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import ContactFooter from "../components/ContactFooter/ContactFooter";
+import { useLanguage } from "../context/LanguageContext";
+import casestudy from "../i18n/casestudy";
 import "./CaseStudy.css";
 
 // ── Toast ─────────────────────────────────────────────────────────────
@@ -31,7 +33,7 @@ export default function CaseStudy({
   fullImages = [],
   // Navigation
   nextProjectHref = "/works",
-  nextProjectLabel = "Next project",
+  nextProjectLabel,
   backHref = "/works",
 }) {
   const [isFullView, setIsFullView] = useState(false);
@@ -40,6 +42,11 @@ export default function CaseStudy({
   const contentRef = useRef(null);
   const toastTimer = useRef(null);
   const navigate = useNavigate();
+  const { lang } = useLanguage();
+  const t = casestudy[lang];
+
+  const resolvedNextProjectLabel = nextProjectLabel || t.nextProject;
+  const menuItems = [t.menuOverview, t.menuChallenge, t.menuOutcome];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,7 +61,7 @@ export default function CaseStudy({
   const handleSetView = (full) => {
     if (isFullView === full) return;
     setIsFullView(full);
-    showToast(full ? "Viewing full case study" : "Viewing overview");
+    showToast(full ? t.toastFullCase : t.toastOverview);
 
     // Scroll suave al contenido
     setTimeout(() => {
@@ -85,7 +92,7 @@ export default function CaseStudy({
                 <path d="M16.086 6.523H2.59" stroke="currentColor" strokeWidth="1.83" strokeLinecap="round"/>
                 <path d="M6.28 1.053L2.174 6.527L6.28 12" stroke="currentColor" strokeWidth="1.83" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Back to Works
+              {t.backToWorks}
             </button>
 
             {/* container-title */}
@@ -100,7 +107,7 @@ export default function CaseStudy({
               <div className="cs-hero__areas">
                 {areas.map((area, i) => (
                   <span key={area} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                    <span className="cs-area-label">{area}</span>
+                    <span className="cs-area-label">{t.areas[area] || area}</span>
                     {i < areas.length - 1 && <span className="cs-area-dot">·</span>}
                   </span>
                 ))}
@@ -113,14 +120,14 @@ export default function CaseStudy({
       {/* ── Summary ── */}
       <section className="cs-summary">
         <div className="cs-summary__inner">
-          <h2 className="cs-summary__title">The Project</h2>
+          <h2 className="cs-summary__title">{t.theProject}</h2>
 
           {/* Desktop layout */}
           <div className="cs-summary__wrapper-details">
 
             {/* Menu */}
             <div className="cs-summary__menu">
-              {["Overview", "Challenge", "Outcome"].map((item, i) => (
+              {menuItems.map((item, i) => (
                 <span
                   key={item}
                   className={`cs-summary__menu-item ${activeTab === i ? "cs-summary__menu-item--active" : ""}`}
@@ -143,13 +150,13 @@ export default function CaseStudy({
                   className={`cs-btn-toggle ${!isFullView ? "cs-btn-toggle--active" : ""}`}
                   onClick={() => handleSetView(false)}
                 >
-                  See overview
+                  {t.seeOverview}
                 </button>
                 <button
                   className={`cs-btn-toggle ${isFullView ? "cs-btn-toggle--active" : ""}`}
                   onClick={() => handleSetView(true)}
                 >
-                  See full case
+                  {t.seeFullCase}
                 </button>
               </div>
             </div>
@@ -158,7 +165,7 @@ export default function CaseStudy({
 
           {/* Mobile accordion */}
           <div className="cs-summary__accordion">
-            {["Overview", "Challenge", "Outcome"].map((item, i) => (
+            {menuItems.map((item, i) => (
               <div key={item} className="cs-accordion-item">
                 <div
                   className={`cs-accordion-header ${activeTab === i ? "cs-accordion-header--active" : ""}`}
@@ -182,13 +189,13 @@ export default function CaseStudy({
                 className={`cs-btn-toggle ${!isFullView ? "cs-btn-toggle--active" : ""}`}
                 onClick={() => handleSetView(false)}
               >
-                See overview
+                {t.seeOverview}
               </button>
               <button
                 className={`cs-btn-toggle ${isFullView ? "cs-btn-toggle--active" : ""}`}
                 onClick={() => handleSetView(true)}
               >
-                See full case
+                {t.seeFullCase}
               </button>
             </div>
           </div>
@@ -226,14 +233,14 @@ export default function CaseStudy({
             className="cs-nav-back"
             onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); navigate(backHref); }}
           >
-            Back To Works
+            {t.backToWorksBottom}
           </a>
           <a
             href={nextProjectHref}
             className="cs-nav-next"
             onClick={(e) => { e.preventDefault(); window.scrollTo(0, 0); navigate(nextProjectHref); }}
           >
-            <span className="cs-nav-next__label">{nextProjectLabel}</span>
+            <span className="cs-nav-next__label">{resolvedNextProjectLabel}</span>
             <svg width="11" height="17" viewBox="0 0 17 13" fill="none">
               <path d="M0.914062 6.52344L14.4097 6.52344" stroke="#FFFFFF" strokeWidth="1.83" strokeLinecap="round"/>
               <path d="M10.7207 12L14.826 6.52632L10.7207 1.05263" stroke="#FFFFFF" strokeWidth="1.83" strokeLinecap="round" strokeLinejoin="round"/>

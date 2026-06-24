@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { useTransition } from "../components/TransitionContext/TransitionContext";
 import ContactFooter from "../components/ContactFooter/ContactFooter";
+import { useLanguage } from "../context/LanguageContext";
+import works from "../i18n/works";
 import "./Works.css";
 
 // ── SVG icons ────────────────────────────────────────────────────────
@@ -13,7 +15,7 @@ const ArrowIcon = () => (
 );
 
 // ── Marquee ──────────────────────────────────────────────────────────
-function Marquee() {
+function Marquee({ word }) {
   const trackRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ function Marquee() {
       <div className="marquee-track" ref={trackRef}>
         {Array.from({ length: 16 }).map((_, i) => (
           <span key={i} style={{ display: "flex", alignItems: "center", gap: "inherit" }}>
-            <span className="mword">WORK</span>{dot}
+            <span className="mword">{word}</span>{dot}
           </span>
         ))}
       </div>
@@ -49,8 +51,7 @@ function Marquee() {
 }
 
 // ── Work card ────────────────────────────────────────────────────────
-function WorkCard({ image, hoverImage, imageMobile, title, description, areas, href = "#" }) {
-  const areaList = areas.split(" · ");
+function WorkCard({ image, hoverImage, imageMobile, title, areaList, seeProjectLabel, href = "#" }) {
   const [hovered, setHovered] = useState(false);
   const { startCurtain } = useTransition();
 
@@ -89,7 +90,7 @@ function WorkCard({ image, hoverImage, imageMobile, title, description, areas, h
 
           {/* CTA */}
           <a href={href} className="btn-see-project" onClick={e => { e.stopPropagation(); e.preventDefault(); startCurtain(href); }}>
-            See project
+            {seeProjectLabel}
             <ArrowIcon />
           </a>
 
@@ -101,35 +102,40 @@ function WorkCard({ image, hoverImage, imageMobile, title, description, areas, h
 
 // ── Componente principal ─────────────────────────────────────────────
 export default function Works() {
-  const works = [
+  const { lang } = useLanguage();
+  const t = works[lang];
+
+  const workIds = [
     {
+      id: "customer-portal",
       image: "/images/works/work-adeslas.webp",
       hoverImage: "/images/works/work-adeslash.webp",
       imageMobile: "/images/works/work-adeslas-mobile.webp",
-      title: "Customer Portal",
-      description: "Self-Service Platform for Insurance Clients",
-      areas: "Strategy · Product Design · UX Design",
       href: "/works/customer-portal",
     },
     {
+      id: "lead-generation-platform",
       image: "/images/works/work-choose.webp",
       hoverImage: "/images/works/work-chooseh.webp",
       imageMobile: "/images/works/work-choose-mobile.webp",
-      title: "Lead Generation Platform",
-      description: "Marketing Platform for Lead Capture & Conversion",
-      areas: "Strategy · Product Design · UX Design",
       href: "/works/lead-generation-platform",
     },
     {
+      id: "performance-dashboard",
       image: "/images/works/work-pyc.webp",
       hoverImage: "/images/works/work-pych.webp",
       imageMobile: "/images/works/work-dashboard-mobile.webp",
-      title: "Performance Dashboard",
-      description: "Real-Time Analytics & Reporting Platform",
-      areas: "Strategy · Product Design · UX Design",
       href: "/works/performance-dashboard",
     },
   ];
+
+  const areaList = [t.areaStrategy, t.areaProductDesign, t.areaUxDesign];
+
+  const worksData = workIds.map((w) => ({
+    ...w,
+    title: t.titles[w.id],
+    areaList,
+  }));
 
   return (
     <div style={{ background: "#fff", minHeight: "100vh" }}>
@@ -138,19 +144,21 @@ export default function Works() {
       {/* Hero */}
       <div className="works-hero">
         <div className="works-hero__wrapper-title">
-          <p className="works-hero__subtitle">Solving <span className="red">Real</span> Problems</p>
-          <h1 className="works-hero__title">WORKS</h1>
+          <p className="works-hero__subtitle">
+            {t.heroSubtitlePrefix} <span className="red">{t.heroSubtitleRed}</span>{t.heroSubtitleSuffix ? ` ${t.heroSubtitleSuffix}` : ""}
+          </p>
+          <h1 className={`works-hero__title${lang === 'es' ? ' works-hero__title--es' : ''}`}>{t.heroTitle}</h1>
         </div>
       </div>
 
       {/* Marquee */}
-      <Marquee />
+      <Marquee word={t.marqueeWord} />
 
       {/* Works */}
       <div className="container-works">
         <div className="wrapper-works">
-          {works.map((w, i) => (
-            <WorkCard key={i} {...w} />
+          {worksData.map((w, i) => (
+            <WorkCard key={w.id} {...w} seeProjectLabel={t.seeProject} />
           ))}
         </div>
       </div>

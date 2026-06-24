@@ -1,20 +1,23 @@
 import CaseStudy from "./CaseStudy";
+import { useLanguage } from "../context/LanguageContext";
+import casestudy from "../i18n/casestudy";
+import customerPortal from "../i18n/customerPortal";
 
 const BASE = "/images/projects/adeslas/";
 
 export default function CustomerPortal() {
+  const { lang } = useLanguage();
+  const t = customerPortal[lang];
+  const tCommon = casestudy[lang];
+
   return (
     <CaseStudy
       coverImage="/images/projects/cover-adeslas.webp"
       coverImageMobile="/images/projects/cover-adeslas-mobile.webp"
       projectDescription="Self-Service Platform for Insurance Clients"
-      projectTitle={`Customer\nPortal`}
+      projectTitle={t.projectTitle}
       areas={["Branding", "Product Design", "UX/UI Design"]}
-      summaryTabs={[
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "Lorem ipsum dolor sit amet",
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      ]}
+      summaryTabs={t.summaryTabs}
       overviewImages={[
         `${BASE}mockup-overview.webp`,
         `${BASE}landingfull-overview.webp`,
@@ -32,7 +35,7 @@ export default function CustomerPortal() {
         { pair: true, images: [`${BASE}modal-overview.webp`, `${BASE}child-overview.webp`] },
       ]}
       nextProjectHref="/works/lead-generation-platform"
-      nextProjectLabel="Next project"
+      nextProjectLabel={tCommon.nextProject}
       backHref="/works"
     />
   );

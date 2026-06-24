@@ -1,20 +1,23 @@
 import CaseStudy from "./CaseStudy";
+import { useLanguage } from "../context/LanguageContext";
+import casestudy from "../i18n/casestudy";
+import leadGenerationPlatform from "../i18n/leadGenerationPlatform";
 
 const BASE = "/images/projects/choose/";
 
 export default function LeadGenerationPlatform() {
+  const { lang } = useLanguage();
+  const t = leadGenerationPlatform[lang];
+  const tCommon = casestudy[lang];
+
   return (
     <CaseStudy
       coverImage="/images/projects/cover-choose.webp"
       coverImageMobile="/images/projects/cover-choose-mobile.webp"
       projectDescription="Lead Generation Platform"
-      projectTitle={`Lead\nGeneration`}
+      projectTitle={t.projectTitle}
       areas={["Strategy", "Product Design", "UX Design"]}
-      summaryTabs={[
-        "Choose es una landing page orientada a la captación de leads a través de tests interactivos de personalidad, habilidades y orientación laboral. El proyecto combinó branding, diseño UX/UI y estrategia de captación para crear una experiencia dinámica, pensada para generar engagement en redes y atraer a personas interesadas en su desarrollo profesional.",
-        "Lorem ipsum dolor sit amet",
-        "La implementación del CMS redujo la dependencia del equipo de desarrollo y permitió mantener la landing siempre actualizada con nuevos contenidos. Choose combinó diseño visual, estrategia de captación y autonomía operativa, consolidándose como una herramienta atractiva tanto para los usuarios como para el equipo interno de marketing.",
-      ]}
+      summaryTabs={t.summaryTabs}
       overviewImages={[
         `${BASE}landing1-overview.webp`,
         `${BASE}landingresults-overview.webp`,
@@ -30,7 +33,7 @@ export default function LeadGenerationPlatform() {
         { pair: true, images: [`${BASE}image3.webp`, `${BASE}image4.webp`] },
       ]}
       nextProjectHref="/works/performance-dashboard"
-      nextProjectLabel="Next project"
+      nextProjectLabel={tCommon.nextProject}
       backHref="/works"
     />
   );

@@ -142,14 +142,10 @@
   animation: fadeInUp 0.7s ease 0.8s both;
 }
 
-@media (max-width: 768px) {
-  .hero__bottom {
-    justify-content: center;
-  }
-
-  .hero__link {
-    display: none;
-  }
+.hero__bottom .cta-trigger {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero__link {
@@ -275,6 +271,13 @@
     height: auto;
     padding: 0 24px;
     box-sizing: border-box;
+    justify-content: center;
+  }
+
+  .hero__bottom .cta-trigger {
+    position: static;
+    left: auto;
+    transform: none;
   }
 
   .hero__cta,
@@ -298,4 +301,116 @@
     background-image: url('/hero-background-mobile.jpg');
     background-position: center top;
   }
+}
+
+/* ── Toast ── */
+.hero-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #ffffff;
+  color: #06081F;
+  font-family: 'Lexend', sans-serif;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 80px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.hero-toast--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── ShowReel ── */
+.showreel {
+  width: 100%;
+  background: #06081F;
+}
+
+.showreel__thumbnail {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.showreel__gif {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.showreel__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 31, 0.5);
+  transition: background 0.3s ease;
+}
+
+.showreel__thumbnail:hover .showreel__overlay {
+  background: rgba(6, 8, 31, 0.3);
+}
+
+.showreel__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.showreel__thumbnail:hover .showreel__play {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ── Modal ── */
+.showreel__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+
+.showreel__modal-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.showreel__modal-close:hover { opacity: 1; }
+
+.showreel__video {
+  width: 90vw;
+  max-width: 1280px;
+  max-height: 80vh;
+  border-radius: 8px;
 }

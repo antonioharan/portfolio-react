@@ -333,6 +333,7 @@
   .selected-work { height: 360px; }
   .works-hero { height: 404px; }
   .works-hero__title { font-size: 248px; }
+  .works-hero__title--es { font-size: clamp(140px, 14vw, 200px); }
 }
 
 @media (max-width: 768px) {
@@ -376,6 +377,11 @@
   line-height: 0.9;
   text-align: center;
   margin: 0;
+}
+
+/* Español — texto más largo, tamaño reducido */
+.works-hero__title--es {
+  font-size: clamp(180px, 18vw, 248px);
 }
 
 /* ── Gap entre marquee y works ── */
@@ -422,6 +428,10 @@
 
   .works-hero__title {
     font-size: 148px;
+  }
+
+  .works-hero__title--es {
+    font-size: clamp(88px, 28vw, 148px);
   }
 
   .works-hero__subtitle {

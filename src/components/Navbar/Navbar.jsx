@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTransition } from "../TransitionContext/TransitionContext";
+import { useLanguage } from "../../context/LanguageContext";
+import navbar from "../../i18n/navbar";
 import "./Navbar.css";
 import logoAntonio from "../../assets/logo-antonio.svg";
 import logoDesign from "../../assets/logo-design.svg";
@@ -7,9 +10,12 @@ import logoDesign from "../../assets/logo-design.svg";
 export default function Navbar({ theme = "dark" }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { startAboutTransition } = useTransition();
+  const { lang, setLang, toggleLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
-  const [lang, setLang] = useState("es");
+
+  const t = navbar[lang];
 
   const isActive = (path) => {
     if (path === "/works") return location.pathname.startsWith("/works");
@@ -21,7 +27,11 @@ export default function Navbar({ theme = "dark" }) {
 
   const handleNav = (path) => {
     setMenuOpen(false);
-    navigate(path);
+    if (path === "/about" && location.pathname !== "/about") {
+      startAboutTransition(path);
+    } else {
+      navigate(path);
+    }
   };
 
   return (
@@ -65,12 +75,12 @@ export default function Navbar({ theme = "dark" }) {
 
           <div className="navbar__links">
             {[
-              { label: "Work", path: "/works" },
-              { label: "Home", path: "/" },
-              { label: "About", path: "/about" },
+              { label: t.work, path: "/works" },
+              { label: t.home, path: "/" },
+              { label: t.about, path: "/about" },
             ].map(({ label, path }) => (
               <span
-                key={label}
+                key={path}
                 onClick={() => handleNav(path)}
                 className={`navbar__link ${isActive(path) ? "navbar__link--active" : ""}`}
                 style={{ "--link-color": linkColor, "--hover-color": hoverColor, cursor: "pointer" }}
@@ -80,10 +90,19 @@ export default function Navbar({ theme = "dark" }) {
             ))}
           </div>
 
-          <div className="navbar__lang">
-            <span className="navbar__lang-item" style={{ "--link-color": linkColor, "--hover-color": hoverColor, cursor: "pointer" }}>En</span>
-            <span className="navbar__lang-sep" style={{ color: linkColor }}>-</span>
-            <span className="navbar__lang-item navbar__lang-item--active">Es</span>
+          <div className="navbar__lang-pill">
+            <button
+              className={`navbar__lang-pill-item ${lang === "es" ? "navbar__lang-pill-item--active" : ""}`}
+              onClick={() => setLang("es")}
+            >
+              Es
+            </button>
+            <button
+              className={`navbar__lang-pill-item ${lang === "en" ? "navbar__lang-pill-item--active" : ""}`}
+              onClick={() => setLang("en")}
+            >
+              En
+            </button>
           </div>
 
           {/* Hamburguesa */}
@@ -125,12 +144,12 @@ export default function Navbar({ theme = "dark" }) {
 
         <div className="navbar__mobile-links">
           {[
-            { label: "Home", path: "/" },
-            { label: "Works", path: "/works" },
-            { label: "About", path: "/about" },
+            { label: t.home, path: "/" },
+            { label: t.work, path: "/works" },
+            { label: t.about, path: "/about" },
           ].map(({ label, path }) => (
             <span
-              key={label}
+              key={path}
               onClick={() => handleNav(path)}
               className={`navbar__mobile-link ${isActive(path) ? "navbar__mobile-link--active" : ""}`}
             >
@@ -142,7 +161,7 @@ export default function Navbar({ theme = "dark" }) {
         <div className="navbar__mobile-lang">
           <button
             className={`navbar__lang-toggle ${lang === "en" ? "navbar__lang-toggle--en" : "navbar__lang-toggle--es"}`}
-            onClick={() => setLang(lang === "es" ? "en" : "es")}
+            onClick={toggleLang}
           >
             <span className={`navbar__lang-toggle-pill ${lang === "es" ? "navbar__lang-toggle-pill--es" : "navbar__lang-toggle-pill--en"}`}>
               {lang === "es" ? "Es" : "En"}

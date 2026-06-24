@@ -183,3 +183,27 @@
     font-size: 16px;
   }
 }
+
+/* ── Toast ── */
+.contact-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #ffffff;
+  color: #06081F;
+  font-family: 'Lexend', sans-serif;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 80px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.contact-toast--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
