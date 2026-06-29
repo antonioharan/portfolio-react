@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("es");
+  const [lang, setLang] = useState("en");
 
   const toggleLang = () => setLang((prev) => (prev === "es" ? "en" : "es"));
 

@@ -102,6 +102,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 32px;
+  position: relative;
 }
 
 .whatido__list {
@@ -126,21 +127,63 @@
   color: #F82121;
 }
 
+@media (hover: hover) {
+  .whatido__item:hover {
+    color: #F82121;
+  }
+}
+
 .whatido__note {
   font-family: 'Lexend', sans-serif;
   font-weight: 300;
   font-size: 21px;
-  color: #9A81E9;
+  color: #29259F;
   max-width: 280px;
   min-height: 56px;
-  margin: 8px 0 0;
+  margin: 0;
   flex-shrink: 0;
+  position: absolute;
+  right: 0;
+  transition: top 0.25s ease;
 }
 
 
 /* ── Override ContactFooter en About ── */
 .about-page .contact-container {
   height: 428px;
+}
+
+/* ── Tablet / 1024 ── */
+@media (max-width: 1024px) {
+  .whatido {
+    padding: 0 24px 80px;
+  }
+
+  .whatido__label {
+    text-align: center;
+    width: 100%;
+  }
+
+  .whatido__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .whatido__list {
+    align-items: center;
+  }
+
+  .whatido__item {
+    text-align: center;
+  }
+
+  .whatido__note {
+    position: static;
+    text-align: center;
+    max-width: 100%;
+    min-height: auto;
+  }
 }
 
 /* ── Mobile ── */
@@ -204,5 +247,6 @@
     max-width: 100%;
     min-height: auto;
     text-align: center;
+    position: static;
   }
 }

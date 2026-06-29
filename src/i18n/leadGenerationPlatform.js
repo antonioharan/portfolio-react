@@ -8,7 +8,7 @@ const leadGenerationPlatform = {
     ],
   },
   en: {
-    projectTitle: "Lead\nGeneration\nPlatform",
+    projectTitle: "Lead Generation\nPlatform",
     summaryTabs: [
       "Choose is a landing page focused on lead generation through interactive personality, skills, and career orientation tests. The project combined branding, UX/UI design, and a lead-capture strategy to create a dynamic experience designed to drive social engagement and attract people interested in their professional development.",
       "Lorem ipsum dolor sit amet",

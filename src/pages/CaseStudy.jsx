@@ -15,6 +15,33 @@ function Toast({ message, visible }) {
   );
 }
 
+// ── Image renderer (compartido por overview y full case) ──────────────
+function ImageBlock({ item, i }) {
+  if (item.type === "text") {
+    return (
+      <div key={i} className="cs-text-block">
+        {item.title && <h3 className="cs-text-block__title">{item.title}</h3>}
+        {item.body && <p className="cs-text-block__body">{item.body}</p>}
+      </div>
+    );
+  }
+  if (item.pair) {
+    return (
+      <div key={i} className="cs-img-pair">
+        <div className="cs-img-pair__item">
+          <img src={item.images[0]} alt="" />
+          {item.captions?.[0] && <span className="cs-img-caption">{item.captions[0]}</span>}
+        </div>
+        <div className="cs-img-pair__item">
+          <img src={item.images[1]} alt="" />
+          {item.captions?.[1] && <span className="cs-img-caption">{item.captions[1]}</span>}
+        </div>
+      </div>
+    );
+  }
+  return <img key={i} src={item.src} alt="" className="cs-img-full" />;
+}
+
 // ── Componente principal ──────────────────────────────────────────────
 export default function CaseStudy({
   // Hero
@@ -23,14 +50,15 @@ export default function CaseStudy({
   projectDescription,
   projectTitle,
   projectSubtitle,
+  titleSize,
   areas = [],
   // Summary
   summaryText,
   summaryTabs = [],
-  // Images overview (siempre visibles)
+  // Images overview (visibles en See Overview)
   overviewImages = [],
-  // Images full case (solo visibles en full view)
-  fullImages = [],
+  // Images full case (orden completo, visibles en See Full Case)
+  fullCaseImages = [],
   // Navigation
   nextProjectHref = "/works",
   nextProjectLabel,
@@ -63,7 +91,6 @@ export default function CaseStudy({
     setIsFullView(full);
     showToast(full ? t.toastFullCase : t.toastOverview);
 
-    // Scroll suave al contenido
     setTimeout(() => {
       if (contentRef.current) {
         const top = contentRef.current.getBoundingClientRect().top + window.scrollY - 57 - 32;
@@ -71,6 +98,8 @@ export default function CaseStudy({
       }
     }, 150);
   };
+
+  const images = isFullView ? fullCaseImages : overviewImages;
 
   return (
     <div className="cs-page">
@@ -97,7 +126,10 @@ export default function CaseStudy({
 
             {/* container-title */}
             <div className="cs-hero__container-title">
-              <h1 className="cs-hero__title">
+              <h1
+                className="cs-hero__title"
+                style={titleSize ? { fontSize: titleSize } : undefined}
+              >
                 {projectTitle.split("\n").map((line, i) => (
                   <span key={i} className={i === 1 ? "cs-hero__title-line--red" : ""}>
                     {line}
@@ -204,25 +236,12 @@ export default function CaseStudy({
       </section>
 
       {/* ── Content images ── */}
-      <div className="cs-content" ref={contentRef}>
-        {/* Full only images */}
-        {isFullView && fullImages.map((item, i) => (
-          <div key={i} className={item.pair ? "cs-img-pair" : "cs-img-full"}>
-            {item.pair ? (
-              <>
-                <img src={item.images[0]} alt="" />
-                <img src={item.images[1]} alt="" />
-              </>
-            ) : (
-              <img src={item.src} alt="" />
-            )}
-          </div>
-        ))}
-
-        {/* Overview images — siempre visibles */}
-        {overviewImages.map((src, i) => (
-          <img key={i} src={src} alt="" className="cs-img-full" />
-        ))}
+      <div className="cs-content-wrapper">
+        <div className="cs-content" ref={contentRef}>
+          {images.map((item, i) => (
+            <ImageBlock key={i} item={item} i={i} />
+          ))}
+        </div>
       </div>
 
       {/* ── Project navigation ── */}

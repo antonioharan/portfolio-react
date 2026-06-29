@@ -14,7 +14,7 @@
 .cs-page {
   background: #0B0620;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: clip;
 }
 
 /* ── Navbar ── */
@@ -93,7 +93,9 @@
 
 /* ── Hero ── */
 .cs-hero {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 0;
   width: 100%;
   height: clamp(372px, 27.5vw + 264.75px, 740px);
   overflow: hidden;
@@ -129,7 +131,7 @@
 
 .cs-hero__content {
   position: absolute;
-  bottom: clamp(24px, 8vw, 111px);
+  bottom: clamp(24px, 8vw, 138px);
   left: 0;
   right: 0;
   max-width: 1200px;
@@ -216,8 +218,13 @@
 
 /* ── Summary ── */
 .cs-summary {
+  position: relative;
+  z-index: 1;
   width: 100%;
+  margin-top: -48px;
   padding: 80px 0;
+  background: #0B0620;
+  border-radius: 24px 24px 0 0;
 }
 
 .cs-summary__inner {
@@ -232,12 +239,13 @@
 
 .cs-summary__title {
   color: #FFFFFF;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 56px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 38px;
   font-weight: 800;
   line-height: 1;
+  letter-spacing: -2px;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .cs-summary__wrapper-details {
@@ -346,6 +354,13 @@
 }
 
 /* ── Content images ── */
+.cs-content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: #0B0620;
+}
+
 .cs-content {
   display: flex;
   flex-direction: column;
@@ -375,22 +390,72 @@
   width: 100%;
 }
 
-.cs-img-pair img {
+.cs-img-pair__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   width: calc(50% - 13.905px);
+}
+
+.cs-img-pair__item img {
+  width: 100%;
   display: block;
+}
+
+.cs-img-caption {
+  font-family: 'Lexend', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Text block ── */
+.cs-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding: 96px 0 96px 120px;
+  box-sizing: border-box;
+}
+
+.cs-text-block__title {
+  font-family: 'Lexend', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cs-text-block__body {
+  font-family: 'Lexend', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 170%;
+  letter-spacing: 0.17px;
+  max-width: 520px;
 }
 
 /* ── Project navigation ── */
 .cs-nav-section {
+  position: relative;
+  z-index: 1;
   width: 100%;
   padding: 64px 0;
+  background: #0B0620;
   box-shadow: 0 0.5px 0 0 rgba(209, 224, 232, 0.2);
 }
 
 .cs-nav-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 32px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -467,7 +532,8 @@
 }
 
 .cs-accordion-item {
-  border-bottom: 0.6px solid #D1E0E8;
+  border-bottom: none;
+  box-shadow: 0 0.5px 0 0 rgba(209, 224, 232, 0.4);
 }
 
 .cs-accordion-header {
@@ -558,10 +624,23 @@
     letter-spacing: -2px;
     text-transform: none;
   }
-}
 
+  .cs-nav-inner {
+    padding: 0 24px;
+  }
+
+  .cs-text-block {
+    padding: 64px 24px 64px 24px;
+  }
+}
 
 /* ── Override ContactFooter en CaseStudy ── */
 .cs-page .contact-container {
   height: 428px;
+}
+
+.cs-page .section-contact,
+.cs-page .section-footer {
+  position: relative;
+  z-index: 1;
 }

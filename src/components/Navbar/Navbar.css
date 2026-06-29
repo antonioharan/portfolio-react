@@ -11,10 +11,20 @@
 }
 
 .navbar--dark {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .navbar--light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #ffffff;
   border-bottom: 0.6px solid #D1E0E8;
 }
 

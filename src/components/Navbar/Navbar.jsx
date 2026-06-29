@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTransition } from "../TransitionContext/TransitionContext";
 import { useLanguage } from "../../context/LanguageContext";
@@ -14,6 +14,11 @@ export default function Navbar({ theme = "dark" }) {
   const { lang, setLang, toggleLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
+  const isTouch = useRef(false);
+
+  useEffect(() => {
+    isTouch.current = window.matchMedia("(hover: none)").matches;
+  }, []);
 
   const t = navbar[lang];
 
@@ -40,8 +45,8 @@ export default function Navbar({ theme = "dark" }) {
         <div className="navbar__wrapper">
           <div
             className="navbar__logo"
-            onMouseEnter={() => setLogoHovered(true)}
-            onMouseLeave={() => setLogoHovered(false)}
+            onMouseEnter={() => { if (!isTouch.current) setLogoHovered(true); }}
+            onMouseLeave={() => { if (!isTouch.current) setLogoHovered(false); }}
             onClick={() => handleNav("/")}
             style={{ cursor: "pointer", position: "relative", width: 104, height: 26 }}
           >

@@ -57,23 +57,32 @@ function WhatIDo() {
     return () => observer.disconnect();
   }, []);
 
+  const itemRefs = useRef([]);
+
   return (
     <section className={`whatido ${isVisible ? "whatido--visible" : ""}`} ref={sectionRef}>
       <span className="whatido__label">WHAT I DO</span>
       <div className="whatido__row">
-        <div className="whatido__list" onMouseLeave={() => setActiveIndex(null)}>
+        <div className="whatido__list">
           {items.map((item, i) => (
             <h2
               key={item.label}
+              ref={el => itemRefs.current[i] = el}
               className={`whatido__item ${activeIndex === i ? "whatido__item--active" : ""}`}
-              onMouseEnter={() => setActiveIndex(i)}
               onClick={() => setActiveIndex(activeIndex === i ? null : i)}
             >
               {item.label}
             </h2>
           ))}
         </div>
-        <p className="whatido__note">
+        <p
+          className="whatido__note"
+          style={
+            activeIndex !== null && itemRefs.current[activeIndex]
+              ? { top: itemRefs.current[activeIndex].offsetTop }
+              : {}
+          }
+        >
           {activeIndex !== null ? `* ${items[activeIndex].note}` : ""}
         </p>
       </div>
