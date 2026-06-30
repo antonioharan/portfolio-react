@@ -294,10 +294,6 @@
 
 /* ── Ocultar links y lang en mobile ── */
 @media (max-width: 768px) {
-  .navbar--dark {
-    position: absolute;
-    z-index: 10;
-  }
 
   .navbar__links,
   .navbar__lang-pill {

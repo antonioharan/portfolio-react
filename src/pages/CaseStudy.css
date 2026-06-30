@@ -577,9 +577,12 @@
 }
 
 @media (max-width: 768px) {
+  .cs-page {
+    overflow: visible;
+  }
+
   .cs-hero {
     height: 514px;
-    position: relative;
   }
 
   .cs-hero__content {
