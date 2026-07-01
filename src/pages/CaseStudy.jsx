@@ -108,10 +108,12 @@ export default function CaseStudy({
 
       {/* ── Hero ── */}
       <div className="cs-hero">
-        <picture>
-          {coverImageMobile && <source media="(max-width: 768px)" srcSet={coverImageMobile} />}
-          <img src={coverImage} alt={projectTitle} className="cs-hero__bg" />
-        </picture>
+        <div className="cs-hero__inner">
+          <picture>
+            {coverImageMobile && <source media="(max-width: 768px)" srcSet={coverImageMobile} />}
+            <img src={coverImage} alt={projectTitle} className="cs-hero__bg" />
+          </picture>
+        </div>
 
         <div className="cs-hero__content">
           <div className="cs-hero__wrapper-info">

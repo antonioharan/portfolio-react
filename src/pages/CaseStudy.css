@@ -98,6 +98,11 @@
   z-index: 0;
   width: 100%;
   height: clamp(372px, 27.5vw + 264.75px, 740px);
+}
+
+.cs-hero__inner {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
 }
 
