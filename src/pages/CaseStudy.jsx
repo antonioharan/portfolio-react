@@ -249,8 +249,6 @@ export default function CaseStudy({
         </div>
       </div>
 
-      </div>{/* ── end cs-main ── */}
-
       {/* ── Project navigation ── */}
       <section className="cs-nav-section">
         <div className="cs-nav-inner">
@@ -277,6 +275,8 @@ export default function CaseStudy({
 
       {/* ── Contact ── */}
       <ContactFooter />
+
+      </div>{/* ── end cs-main ── */}
 
       {/* Toast */}
       <Toast message={toast.message} visible={toast.visible} />
