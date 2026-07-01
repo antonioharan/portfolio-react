@@ -14,6 +14,7 @@ export default function PerformanceDashboard() {
   return (
     <CaseStudy
       coverImage="/images/projects/cover-pyc.webp"
+      coverImageMobile="/images/projects/cover-pyc-mobile.webp"
       projectDescription="Internal Analytics Platform"
       projectTitle={t.projectTitle}
       areas={["Strategy", "Product Design", "UX Design"]}
