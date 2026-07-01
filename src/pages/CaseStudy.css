@@ -587,12 +587,12 @@
 
   .cs-hero__content {
     bottom: auto;
-    top: 168px;
+    top: 134px;
     padding: 0 24px;
   }
 
   .cs-hero__container-title {
-    gap: 32px;
+    gap: 56px;
   }
 
   .cs-hero__title {
@@ -615,6 +615,14 @@
 
   .cs-summary {
     padding: 32px 0;
+  }
+
+  .cs-summary__title {
+    display: none;
+  }
+
+  .cs-accordion-header {
+    padding: 21px 0;
   }
 
   .cs-summary__inner {
