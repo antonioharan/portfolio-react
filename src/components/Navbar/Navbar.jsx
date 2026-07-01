@@ -13,6 +13,11 @@ export default function Navbar({ theme = "dark" }) {
   const { startAboutTransition } = useTransition();
   const { lang, setLang, toggleLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
   const [logoHovered, setLogoHovered] = useState(false);
   const isTouch = useRef(false);
 
