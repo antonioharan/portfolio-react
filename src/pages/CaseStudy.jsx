@@ -151,6 +151,9 @@ export default function CaseStudy({
         </div>
       </div>
 
+      {/* ── Main content ── */}
+      <div className="cs-main">
+
       {/* ── Summary ── */}
       <section className="cs-summary">
         <div className="cs-summary__inner">
@@ -245,6 +248,8 @@ export default function CaseStudy({
           ))}
         </div>
       </div>
+
+      </div>{/* ── end cs-main ── */}
 
       {/* ── Project navigation ── */}
       <section className="cs-nav-section">

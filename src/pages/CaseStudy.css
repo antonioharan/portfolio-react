@@ -221,15 +221,19 @@
   font-size: 18px;
 }
 
-/* ── Summary ── */
-.cs-summary {
+/* ── Main content wrapper ── */
+.cs-main {
   position: relative;
   z-index: 1;
-  width: 100%;
-  margin-top: -48px;
-  padding: 80px 0;
   background: #0B0620;
+  margin-top: -48px;
   border-radius: 24px 24px 0 0;
+}
+
+/* ── Summary ── */
+.cs-summary {
+  width: 100%;
+  padding: 80px 0;
 }
 
 .cs-summary__inner {
@@ -360,10 +364,7 @@
 
 /* ── Content images ── */
 .cs-content-wrapper {
-  position: relative;
-  z-index: 2;
   width: 100%;
-  background: #0B0620;
 }
 
 .cs-content {
