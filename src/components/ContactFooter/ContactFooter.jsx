@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 import "./ContactFooter.css";
 
 // ── Toast ─────────────────────────────────────────────────────────────
@@ -10,7 +11,19 @@ function Toast({ message, visible }) {
   );
 }
 
+const t = {
+  es: {
+    paragraph: "Envíame un mensaje",
+    emailCopied: "Email copiado",
+  },
+  en: {
+    paragraph: "Drop me a message",
+    emailCopied: "Email copied",
+  },
+};
+
 export default function ContactFooter() {
+  const { lang } = useLanguage();
   const [toast, setToast] = useState({ visible: false, message: "" });
   const toastTimer = useRef(null);
 
@@ -23,7 +36,7 @@ export default function ContactFooter() {
   const handleCopyEmail = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText("antonioharan@gmail.com");
-    showToast("Email copied");
+    showToast(t[lang].emailCopied);
   };
 
   return (
@@ -39,7 +52,7 @@ export default function ContactFooter() {
 
             {/* Wrapper Info */}
             <div className="contact-wrapper-info">
-              <p className="contact-info-paragraph">Got a project in mind? I'm all ears</p>
+              <p className="contact-info-paragraph">{t[lang].paragraph}</p>
               <a href="#" onClick={handleCopyEmail} className="contact-email">antonioharan@gmail.com</a>
             </div>
           </div>

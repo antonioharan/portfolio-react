@@ -1,6 +1,6 @@
 const home = {
   es: {
-    subtitle: "Un diseñador visual",
+    subtitle: "Un diseñador UX/UI",
     titleLine1: "IDEAS con",
     titleLine2: "DISEÑO",
     titleLine1Hover: "NO *SOLO",
@@ -14,7 +14,7 @@ const home = {
     emailCopied: "Email copiado",
   },
   en: {
-    subtitle: "A visual designer",
+    subtitle: "A UX/UI Designer",
     titleLine1: "IDEAS AND",
     titleLine2: "DESIGN",
     titleLine1Hover: "NOT *JUST",

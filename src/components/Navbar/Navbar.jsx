@@ -10,7 +10,7 @@ import logoDesign from "../../assets/logo-design.svg";
 export default function Navbar({ theme = "dark" }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { startAboutTransition } = useTransition();
+  const { startTransition, startAboutTransition } = useTransition();
   const { lang, setLang, toggleLang } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,6 +39,8 @@ export default function Navbar({ theme = "dark" }) {
     setMenuOpen(false);
     if (path === "/about" && location.pathname !== "/about") {
       startAboutTransition(path);
+    } else if (path === "/works" && !location.pathname.startsWith("/works")) {
+      startTransition(path);
     } else {
       navigate(path);
     }

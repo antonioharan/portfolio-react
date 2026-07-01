@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { TransitionProvider } from "./components/TransitionContext/TransitionContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import Intro from "./components/Intro/Intro";
@@ -9,11 +10,20 @@ import PerformanceDashboard from "./pages/PerformanceDashboard";
 import LeadGenerationPlatform from "./pages/LeadGenerationPlatform";
 import CustomerPortal from "./pages/CustomerPortal";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
         <TransitionProvider>
+          <ScrollToTop />
           <Intro />
           <Routes>
             <Route path="/" element={<Home />} />

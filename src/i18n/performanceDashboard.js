@@ -2,9 +2,9 @@ const performanceDashboard = {
   es: {
     projectTitle: "Panel de\nRendimiento",
     summaryTabs: [
-      "Para&Compara es un comparador de tarifas móviles orientado a captación de leads. Diseñé un dashboard para que el equipo de marketing pudiera gestionar campañas, leads y productos, ofreciendo una visión clara del rendimiento y ayudando a tomar decisiones estratégicas.",
-      "Para&Compara es un comparador de tarifas móviles orientado a la captación de leads. Tras completar un formulario y responder algunas preguntas, el usuario recibe ofertas personalizadas adaptadas a su consumo.",
-      "El equipo de marketing necesitaba una interfaz que permitiera gestionar y hacer seguimiento de las campañas del comparador. El diseño debía cubrir todo el flujo de gestión, desde la captación del lead hasta la actualización de las tarifas mostradas al usuario. El sistema debía permitir:\n\n• Obtener una lectura del rendimiento de las campañas\n• Visualizar y gestionar los leads captados\n• Cargar y editar empresas asociadas\n• Cargar y actualizar productos (tarifas) del comparador\n• Controlar los envíos automáticos de leads a cada empresa según su programación",
+      "Para&Compara es un comparador de tarifas móviles orientado a la captación de leads. Diseñé un dashboard que permite al equipo de marketing gestionar campañas, leads y productos, ofreciendo una visión clara del rendimiento para facilitar la toma de decisiones.",
+      "El principal desafío fue comprender las necesidades del equipo de marketing y trabajar junto al equipo de desarrollo para definir qué información era posible obtener, cómo estructurarla y cuál era la mejor manera de presentarla en una interfaz clara, intuitiva y fácil de utilizar.",
+      "El dashboard permitió identificar rápidamente los canales de captación más eficientes y facilitó la toma de decisiones del equipo de marketing a partir de datos claros y accesibles.",
     ],
     captions: ['Stepper con preguntas', 'Resultado personalizado mostrado al usuario'],
     textBlocks: [
@@ -33,16 +33,15 @@ const performanceDashboard = {
   en: {
     projectTitle: "Performance\nDashboard",
     summaryTabs: [
-      "Para&Compara is a mobile rate comparison tool focused on lead generation. I designed a dashboard so the marketing team could manage campaigns, leads, and products, providing a clear view of performance and supporting strategic decision-making.",
-      "Para&Compara is a mobile rate comparison tool focused on lead generation. After filling out a form and answering a few questions, the user receives personalized offers tailored to their usage.",
-      "The marketing team needed an interface to manage and track the comparator's campaigns. The design had to cover the entire management flow, from lead capture to updating the rates shown to the user. The system needed to allow:\n\n• Reading campaign performance\n• Viewing and managing captured leads\n• Loading and editing associated companies\n• Loading and updating comparator products (rates)\n• Controlling automatic lead delivery to each company according to its schedule",
+      "Para&Compara is a mobile rate comparison tool focused on lead generation. I designed a dashboard that allows the marketing team to manage campaigns, leads and products, providing a clear view of performance to support decision-making.",
+      "The main challenge was understanding the marketing team's needs and working alongside the development team to define what information could be obtained, how to structure it, and the best way to present it in a clear, intuitive and easy-to-use interface.",
+      "The dashboard made it possible to quickly identify the most efficient acquisition channels and supported the marketing team's decision-making based on clear, accessible data.",
     ],
-    captions: ['Stepper con preguntas', 'Resultado personalizado mostrado al usuario'],
     captions: ['Question stepper', 'Personalised result shown to the user'],
     textBlocks: [
       {
         title: "Dashboard",
-        body: "I designed the dashboard to provide a clear view of the comparator's performance and support the marketing team's decision-making. The information is organized across three levels of analysis: monthly funnel summary, annual evolution, and performance by channel.",
+        body: "I designed the dashboard to provide a clear view of the comparator's performance and support the marketing team's decision-making. The information is organised across three levels of analysis: monthly funnel summary, annual evolution, and performance by channel.",
       },
       {
         title: "Product management",
@@ -54,11 +53,11 @@ const performanceDashboard = {
       },
       {
         title: "Product list",
-        body: "Provides centralized management of all the comparator's rates, making it easy to edit, activate, or deactivate them. Filters by company and service type speed up searching and catalog maintenance.",
+        body: "Provides centralised management of all the comparator's rates, making it easy to edit, activate, or deactivate them. Filters by company and service type speed up searching and catalogue maintenance.",
       },
       {
         title: "Leads view",
-        body: "Centralizes the tracking of all leads generated from the comparator, allowing their status to be monitored from capture through to delivery to the corresponding company. Includes filters by date, company, channel, and status, making it easy to locate specific cases and analyze lead performance and quality.",
+        body: "Centralises the tracking of all leads generated from the comparator, allowing their status to be monitored from capture through to delivery to the corresponding company. Includes filters by date, company, channel, and status, making it easy to locate specific cases and analyse lead performance and quality.",
       },
     ],
   },
