@@ -11,7 +11,7 @@ const works = {
     areaUxDesign: "Diseño UX",
     titles: {
       "customer-portal": "Portal de Clientes",
-      "lead-generation-platform": "captación de leads",
+      "lead-generation-platform": "Captación de leads",
       "performance-dashboard": "Panel de Rendimiento",
     },
   },

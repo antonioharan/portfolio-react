@@ -10,7 +10,7 @@ const casestudy = {
     toastFullCase: "Viendo caso completo",
     toastOverview: "Viendo resumen",
     backToWorksBottom: "Volver a Trabajos",
-    nextProject: "Siguiente proyecto",
+    nextProject: "Siguiente",
     areas: {
       Branding: "Branding",
       Strategy: "Estrategia",
