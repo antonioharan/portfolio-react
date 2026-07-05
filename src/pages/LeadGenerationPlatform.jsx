@@ -17,7 +17,7 @@ export default function LeadGenerationPlatform() {
       projectDescription="Lead Generation Platform"
       projectTitle={t.projectTitle}
       titleSize="clamp(72px, 13vw, 189px)"
-      areas={["Strategy", "Product Design", "UX Design"]}
+      areas={["Branding", "UX/UI Design"]}
       summaryTabs={t.summaryTabs}
 
       overviewImages={[

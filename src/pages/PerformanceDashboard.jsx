@@ -17,7 +17,7 @@ export default function PerformanceDashboard() {
       coverImageMobile="/images/projects/cover-pyc-mobile.webp"
       projectDescription="Internal Analytics Platform"
       projectTitle={t.projectTitle}
-      areas={["Strategy", "Product Design", "UX Design"]}
+      areas={["Product Design", "UX/UI Design"]}
       summaryTabs={t.summaryTabs}
 
       overviewImages={[

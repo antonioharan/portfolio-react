@@ -129,12 +129,10 @@ export default function Works() {
     },
   ];
 
-  const areaList = [t.areaStrategy, t.areaProductDesign, t.areaUxDesign];
-
   const worksData = workIds.map((w) => ({
     ...w,
     title: t.titles[w.id],
-    areaList,
+    areaList: t.areas[w.id],
   }));
 
   return (

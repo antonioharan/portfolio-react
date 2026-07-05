@@ -6,13 +6,15 @@ const works = {
     heroTitle: "TRABAJOS",
     marqueeWord: "TRABAJO",
     seeProject: "Ver proyecto",
-    areaStrategy: "Estrategia",
-    areaProductDesign: "Diseño de Producto",
-    areaUxDesign: "Diseño UX",
     titles: {
       "customer-portal": "Portal de Clientes",
       "lead-generation-platform": "Captación de leads",
       "performance-dashboard": "Panel de Rendimiento",
+    },
+    areas: {
+      "customer-portal": ["Estrategia", "Diseño de Producto", "Diseño UX/UI"],
+      "lead-generation-platform": ["Branding", "Diseño UX/UI"],
+      "performance-dashboard": ["Diseño de Producto", "Diseño UX/UI"],
     },
   },
   en: {
@@ -22,13 +24,15 @@ const works = {
     heroTitle: "WORKS",
     marqueeWord: "WORK",
     seeProject: "See project",
-    areaStrategy: "Strategy",
-    areaProductDesign: "Product Design",
-    areaUxDesign: "UX Design",
     titles: {
       "customer-portal": "Customer Portal",
       "lead-generation-platform": "Lead Generation Platform",
       "performance-dashboard": "Performance Dashboard",
+    },
+    areas: {
+      "customer-portal": ["Strategy", "Product Design", "UX/UI Design"],
+      "lead-generation-platform": ["Branding", "UX/UI Design"],
+      "performance-dashboard": ["Product Design", "UX/UI Design"],
     },
   },
 };

@@ -15,7 +15,7 @@ export default function CustomerPortal() {
       coverImage="/images/projects/cover-adeslas.webp"
       coverImageMobile="/images/projects/cover-adeslas-mobile.webp"
       projectTitle={t.projectTitle}
-      areas={["Branding", "Product Design", "UX/UI Design"]}
+      areas={["Strategy", "Product Design", "UX/UI Design"]}
       summaryTabs={t.summaryTabs}
 
       overviewImages={[
